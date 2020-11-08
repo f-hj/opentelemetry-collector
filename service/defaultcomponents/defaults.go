@@ -26,6 +26,7 @@ import (
 	"go.opentelemetry.io/collector/exporter/otlpexporter"
 	"go.opentelemetry.io/collector/exporter/prometheusexporter"
 	"go.opentelemetry.io/collector/exporter/prometheusremotewriteexporter"
+	"go.opentelemetry.io/collector/exporter/redisexporter"
 	"go.opentelemetry.io/collector/exporter/zipkinexporter"
 	"go.opentelemetry.io/collector/extension/fluentbitextension"
 	"go.opentelemetry.io/collector/extension/healthcheckextension"
@@ -92,6 +93,7 @@ func Components() (
 		fileexporter.NewFactory(),
 		otlpexporter.NewFactory(),
 		kafkaexporter.NewFactory(),
+		redisexporter.NewFactory(),
 	)
 	if err != nil {
 		errs = append(errs, err)
